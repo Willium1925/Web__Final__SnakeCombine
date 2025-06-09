@@ -69,3 +69,22 @@ body {
 .food {
     background: var(--accent);
 }
+
+
+#leaderboard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+}
+#leaderboard h3 {
+    margin-top: 0;
+}
+#scoreList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

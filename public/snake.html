@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="stylesheets/snake.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
 <div id="gameBoard"></div>
@@ -13,6 +15,15 @@
     <button id="pauseBtn">Pause</button>
     <div id="score">Score: 0</div>
 </div>
+
+
+<div id="leaderboard">
+    <h3>積分榜</h3>
+    <ul id="scoreList"></ul>
+</div>
+
+
+
 <script src="javascripts/snake.js"></script>
 </body>
 </html>
