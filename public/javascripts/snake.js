@@ -72,11 +72,16 @@ function handleFood(head) {
 // ------------------------------
 
 // update
+// 結束時新增分數 & 更新積分榜
 function update() {
     const newHead = moveSnake();
     if (isCollision(newHead)) {
         clearInterval(gameInterval);
         isRunning = false;
+        //
+        axios.post('/scores', { score: score })
+            .then(() => loadLeaderboard());
+        //
         alert('Game Over');
         return;
     }
@@ -131,6 +136,7 @@ function gameLoop() {
 }
 
 // 開始遊戲
+// 新增載入積分榜
 function startGame() {
     clearInterval(gameInterval);
     initBoard();
@@ -143,6 +149,8 @@ function startGame() {
     isRunning = true;
     document.getElementById('score').textContent = `Score: ${score}`;
     gameInterval = setInterval(gameLoop, speed);
+    // 載入積分榜
+    loadLeaderboard();
 }
 
 // 暫停 / 繼續
@@ -169,6 +177,24 @@ function handleKey(e) {
         nextDirection = newDir;
     }
 }
+
+// 增加積分榜函式
+function loadLeaderboard() {
+    axios.get('/scores')
+        .then(response => {
+            const list = document.getElementById('scoreList');
+            list.innerHTML = '';
+            response.data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.score} 分`;
+                list.appendChild(li);
+            });
+        })
+        .catch(error => console.error('無法載入積分榜', error));
+}
+
+
+
 
 // ------------------------------
 // UI Binding & Init
