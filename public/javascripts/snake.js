@@ -184,11 +184,23 @@ function loadLeaderboard() {
         .then(response => {
             const list = document.getElementById('scoreList');
             list.innerHTML = '';
-            response.data.forEach(item => {
+            // // 原本的寫法
+            // response.data.forEach(item => {
+            //     const li = document.createElement('li');
+            //     li.textContent = `${item.score} 分`;
+            //     list.appendChild(li);
+            // });
+            // 改固定顯示10筆資料
+            const scores = response.data;
+            for (let i = 0; i < 10; i++) {
                 const li = document.createElement('li');
-                li.textContent = `${item.score} 分`;
+                if (scores[i]) {
+                    li.textContent = `${i + 1}. ${scores[i].score} 分`;
+                } else {
+                    li.textContent = `${i + 1}. `;
+                }
                 list.appendChild(li);
-            });
+            }
         })
         .catch(error => console.error('無法載入積分榜', error));
 }

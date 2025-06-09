@@ -2,22 +2,39 @@
     --bg: #000;
     --board-bg: #161616;
     --primary: #fff;
-    --accent: red;
+    /*--accent: red;*/
+    --accent: #9147ff;
     --cell-border: #222;
-    --btn-border: #fff;
+    /*--btn-border: #fff;*/
+    --btn-border: #9147ff;
+    --leaderboard-bg: #222;
+    --leaderboard-title: #9147ff;
 }
 
 body {
     margin: 0;
     background: var(--bg);
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 100vh;
     color: var(--primary);
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+}
+
+
 
 #controls {
     margin-top: 16px;
@@ -33,6 +50,9 @@ body {
     color: var(--primary);
     border-radius: 4px;
     cursor: pointer;
+    //
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
 }
 
 #controls button:hover {
@@ -71,20 +91,60 @@ body {
 }
 
 
+/*#leaderboard {*/
+/*    position: absolute;*/
+/*    top: 20px;*/
+/*    right: 20px;*/
+/*    width: 150px;*/
+/*    background: #f4f4f4;*/
+/*    padding: 10px;*/
+/*    border-radius: 8px;*/
+/*}*/
+
+/*#leaderboard h3 {*/
+/*    margin-top: 0;*/
+/*}*/
+/*#scoreList {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+
+
 #leaderboard {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 150px;
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 8px;
+    width: 180px;
+    background: var(--leaderboard-bg);
+    padding: 16px;
+    border-radius: 12px;
+    margin-left: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 #leaderboard h3 {
     margin-top: 0;
+    color: var(--leaderboard-title);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
+
 #scoreList {
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+}
+
+#scoreList li {
+    height: 2rem;
+    line-height: 2rem;
+    border-bottom: 1px solid #333;
+    color: var(--primary);
+    text-align: left;
+    padding-left: 8px;
+    font-size: 1rem;
+    background: transparent;
 }

@@ -9,21 +9,26 @@
 
 </head>
 <body>
-<div id="gameBoard"></div>
-<div id="controls">
-    <button id="startBtn">Start</button>
-    <button id="pauseBtn">Pause</button>
-    <div id="score">Score: 0</div>
+<div id="main-container">
+    <div>
+        <div id="gameBoard"></div>
+        <div id="controls">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn">Pause</button>
+            <div id="score">Score: 0</div>
+        </div>
+    </div>
+    <div id="leaderboard">
+        <h3>積分榜</h3>
+        <ul id="scoreList"></ul>
+    </div>
 </div>
-
-
-<div id="leaderboard">
-    <h3>積分榜</h3>
-    <ul id="scoreList"></ul>
-</div>
-
-
-
+<!--寫在snake.js引入之前，才能進入就渲染分數榜-->
+<script>
+    window.onload = function() {
+        if (typeof loadLeaderboard === 'function') loadLeaderboard();
+    }
+</script>
 <script src="javascripts/snake.js"></script>
 </body>
 </html>
