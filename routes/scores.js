@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/scores.db');
+//const db = new sqlite3.Database('./db/scores.db');
+const path = require('path');
+const dbPath = path.join(__dirname, '..', 'db', 'scores.db');
+const db = new sqlite3.Database(dbPath);
 
 // 取得積分榜（由高到低排序）
 router.get('/', (req, res) => {

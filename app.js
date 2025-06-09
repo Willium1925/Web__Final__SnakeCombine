@@ -23,7 +23,7 @@ module.exports = app;
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
+const port = 3001;
 
 // 中介層
 app.use(cors());
@@ -40,3 +40,10 @@ app.use('/scores', scoreRouter);
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+// 錯誤輸出
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Server Error: ' + err.message);
+});
+
