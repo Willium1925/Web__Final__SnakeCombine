@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找不到頁面 - 404</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      z-index: -2;
+      display: flex;
+      justify-content: center; /* 水平置中圖片 */
+      align-items: center;
+      background-color: black;
+    }
+
+    .background img {
+      height: 100vh;
+      width: auto; /* 寬度自動依比例縮放 */
+      object-fit: contain;
+    }
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .error-number {
+      font-size: 6rem;
+      color: #9147ff;
+      animation: fadeInScale 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin-top: 1rem;
+      animation: bounce 1.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-15px);
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #9147ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+      background-color: #772ce8;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<!-- 背景 -->
+<div class="background">
+  <img src="https://i.kym-cdn.com/photos/images/original/002/098/538/698.png" alt="背景圖">
+</div>
+<div class="overlay"></div>
+
+<!-- 內容 -->
+<div class="content">
+  <div class="error-number">404</div>
+  <div class="emoji">
+    <img src="images/biblethump.png" alt="BibleThump" width="60" height="60">
+  </div>
+
+  <p>喔不！你要找的頁面好像被吃掉了...</p>
+  <a href="snake.html">玩點遊戲消磨時間吧</a>
+</div>
+
+
+</body>
+</html>
